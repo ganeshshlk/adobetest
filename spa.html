@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Single Page Application using JavaScript</title>
+	<script>
+
+
+
+		var pages = {
+			'home': `Welcome to XYZ Company. This is our home page!<br/><br/>`,
+			'aboutus': `Our About Us page<br/><br/>`,
+			'services': `Our Services page<br/><br/>`,
+			'contact': `Our Contact Us page<br/><br/>`
+		};
+
+		function getPageContent(page) {
+			var contentToReturn;
+			switch (page) {
+				case 'home':
+					window.adobeDataLayer = window.adobeDataLayer || [];
+					window.adobeDataLayer.push({
+						"page": {
+							"name": "home",
+							"channel": "website1"
+						},
+						"user": {
+							"identifier": "abcd123@test.com",
+							"status": "logged-in"
+						},
+						"event": "pageViews"
+					});
+					contentToReturn = pages.home;
+
+					break;
+				case 'aboutus':
+					window.adobeDataLayer = window.adobeDataLayer || [];
+					window.adobeDataLayer.push({
+						"page": {
+							"name": "aboutus",
+							"channel": "website1"
+						},
+						"user": {
+							"identifier": "abcd123@test.com",
+							"status": "logged-in"
+						},
+						"event": "pageViews"
+					});
+					contentToReturn = pages.aboutus;
+
+					break;
+				case 'services':
+					window.adobeDataLayer = window.adobeDataLayer || [];
+					window.adobeDataLayer.push({
+						"page": {
+							"name": "services",
+							"channel": "website1"
+						},
+						"user": {
+							"identifier": "abcd123@test.com",
+							"status": "logged-in"
+						},
+						"event": "pageViews"
+					});
+					contentToReturn = pages.services;
+					break;
+				case 'contact':
+					window.adobeDataLayer = window.adobeDataLayer || [];
+					window.adobeDataLayer.push({
+						"page": {
+							"name": "contact",
+							"channel": "website1"
+						},
+						"user": {
+							"identifier": "abcd123@test.com",
+							"status": "logged-in"
+						},
+						"event": "pageViews"
+					});
+					contentToReturn = pages.contact;
+					break;
+				default:
+					window.adobeDataLayer = window.adobeDataLayer || [];
+					window.adobeDataLayer.push({
+						"page": {
+							"name": "homepage",
+							"channel": "website1"
+						},
+						"user": {
+							"identifier": "abcd123@test.com",
+							"status": "logged-in"
+						},
+						"event": "pageViews"
+					});
+					contentToReturn = pages.home;
+					break;
+			}
+			document.getElementById('content').innerHTML = contentToReturn;
+		}
+	</script>
+	<script src="https://assets.adobedtm.com/22bf1a13013f/24e37bfd2f5e/launch-4abac7563a6b-development.min.js"
+		async></script>
+	<!-- <script src="https://assets.adobedtm.com/80673311e435/7a60ff6240bf/launch-1617d8857b89-development.min.js" async></script> -->
+</head>
+
+
+<body onload="getPageContent('home')">
+
+	<div style="width:10%; float: left;background: #eee;height: 100%;">
+		<ul>
+			<li style="line-height: 50px;">
+				<a href="#" onclick="getPageContent('home')">
+					Home
+				</a>
+			</li>
+			<li style="line-height: 50px;">
+				<a href="#" onclick="getPageContent('aboutus')">
+					About Us
+				</a>
+			</li>
+			<li style="line-height: 50px;">
+				<a href="#" onclick="getPageContent('services')">
+					Services
+				</a>
+			</li>
+			<li style="line-height: 50px;">
+				<a href="#" onclick="getPageContent('contact')">
+					Contact
+				</a>
+			</li>
+		</ul>
+
+	</div>
+	<div style="width: 90%;float: right; background: #999;color:#fff; height: 100%;font-size: 50px;">
+		<p style="margin-left: 50px;" id="content">
+		<p>
+	</div>
+</body>
+
+</html>
